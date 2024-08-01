@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blend Modes with Images</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="blendCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('blendCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const img1 = new Image();
+        const img2 = new Image();
+
+        img1.src = 'path/to/first/image.jpg'; // Replace with the path to your first image
+        img2.src = 'path/to/second/image.png'; // Replace with the path to your second image
+
+        img1.onload = function() {
+            ctx.drawImage(img1, 0, 0, canvas.width, canvas.height);
+            
+            // Set the blend mode to 'multiply'
+            ctx.globalCompositeOperation = 'multiply';
+            
+            img2.onload = function() {
+                ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
+
+                // You can experiment with different blend modes here:
+                // ctx.globalCompositeOperation = 'screen';
+                // ctx.globalCompositeOperation = 'overlay';
+                // ctx.globalCompositeOperation = 'darken';
+                // ctx.globalCompositeOperation = 'lighten';
+            };
+        };
+    </script>
+</body>
+</html>
