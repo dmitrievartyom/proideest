@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Hover Example</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <script>
+        const list = document.getElementById('myList');
+        const items = list.getElementsByTagName('li');
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener('mouseover', function() {
+                console.log(`Mouse is over: ${this.innerText}, Position: ${i}`);
+            });
+        }
+    </script>
+</body>
+</html>
